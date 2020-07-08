@@ -4,9 +4,9 @@ import os
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('-o', '--other', nargs = '?', type = int, default = 99)
+parser.add_argument('-o', '--other', nargs = '?', type = float, default = 1, help = 'Files below this percentage of the directory as a whole will be labeled as other.')
 
-parser.add_argument('-m', '--maximum', nargs = '?', type = int, default = 8)
+parser.add_argument('-m', '--maximum', nargs = '?', type = int, default = 8, help = 'Number of different languages to display before setting the rest to \'Other\'')
 
 args = parser.parse_args()
 

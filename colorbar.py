@@ -21,7 +21,7 @@ def draw_statistics(other: int, maximum: int):
     count = 0
     removed_dictionary = data.copy()
     for language in data:
-        if current_total_percentage > other or count >= maximum:
+        if current_total_percentage > 100 - other or count >= maximum:
             if 'Other' in language_percentages:
                 language_percentages['Other'] += round(data[language][0] / bytesum, 4) * 100
                 removed_dictionary['Other'][0] += removed_dictionary.pop(language)[0]
@@ -31,7 +31,8 @@ def draw_statistics(other: int, maximum: int):
                 removed_dictionary['Other'][1] = '#aaaaaa'
         else:
             language_percentages[language] = round(data[language][0] / bytesum, 4) * 100
-            current_total_percentage += round(data[language][0] / bytesum, 4) * 100
+
+        current_total_percentage += round(data[language][0] / bytesum, 4) * 100
 
         count += 1
 
