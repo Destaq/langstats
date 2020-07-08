@@ -20,7 +20,7 @@ current_total_percentage = 0
 count = 0
 removed_dictionary = data.copy()
 for language in data:
-    if current_total_percentage > 90 or count >= 8:
+    if current_total_percentage > 99 or count >= 8:
         if 'Other' in language_percentages:
             language_percentages['Other'] += round(data[language][0] / bytesum, 4) * 100
             removed_dictionary['Other'][0] += removed_dictionary.pop(language)[0]
