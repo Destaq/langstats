@@ -1,0 +1,2 @@
+pycairo==1.19.1
+PyYAML==5.3.1
