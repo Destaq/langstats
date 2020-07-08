@@ -6,7 +6,7 @@ import random
 
 def form_language_dictionary() -> dict:
     # define languages and their associated extensions
-    languages = open("languages.yml")
+    languages = open("data/languages.yml")
     parsed_languages = yaml.load(languages, Loader=yaml.FullLoader)
 
     extensions_languages = {}
