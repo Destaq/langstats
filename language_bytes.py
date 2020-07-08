@@ -30,7 +30,6 @@ def form_language_dictionary() -> dict:
         except KeyError:  # no extensions provided only filename (will be in later update)
             pass
 
-    print("YAML has been parsed.")
     return extensions_languages
 
 
@@ -78,6 +77,7 @@ def match_language(filename: str, extension: str) -> dict:
 
 def read_file_data() -> dict:
     onlyfiles = get_files()
+    files_bytes = {}
     for i in range(len(onlyfiles)):
         filename, file_extension = os.path.splitext(onlyfiles[i])
         files_bytes = match_language(filename, file_extension)
