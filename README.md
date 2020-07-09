@@ -28,9 +28,10 @@ If it works, great! By running `statistics`, the program will search through all
 Likewise, you can also choose to **output the image as a png**, or specify other flags, below.
 
 The following flags are available, and they are all optional (if you ignore them, nothing will happen):
+- **-d or --depth:** how many directories 'deep' the program should search for files in, default 3. A depth of one means reading files only in the root directory, a depth of 2 means files only in root directory + subdirectories, etc. *Example: `statistics -d 5` will search to a 'depth' of 5 from the root directory. <br>I highly recommend **trying this command out on your Desktop** with a depth of 5 or 6, the results are incredible!
 - **-t or --type:** the type of file outputted - svg or png. Defaults to svg as that is much higher quality. Specify 'png' to choose png. *Example: `statistics -t png`*
-- **-l or --limit:** how small a language as a percentage of the whole must be to be excluded. *Example: `statistics -l 5` (if it takes up less than 5 percent, it will be grouped with other)*
-- **-m or --maximum:** the maximum number of unique languages to show (excluding 'Other'). *Example: `statistics -m 3` will show at most 3 other languages in addition to 'Other'*
+- **-l or --limit:** how small a language as a percentage of the whole must be to be excluded. Default is 1. *Example: `statistics -l 5` (if it takes up less than 5 percent, it will be grouped with other)*
+- **-m or --maximum:** the maximum number of unique languages to show (excluding 'Other'). Default is 8. *Example: `statistics -m 3` will show at most 3 other languages in addition to 'Other'*
 
 The above flags can be combined as well and are completely optional (`statistics --type png -l 5 -m 3`). If you are ever in doubt you can run `statistics -h` to get a help output on console reminding you of the flags.
 
