@@ -37,16 +37,18 @@ def form_language_dictionary() -> dict:
 
 # reproduced from Jean-François Fabre on Stack Overflow
 # under creative commons license: https://stackoverflow.com/a/42720847/12876940
-def scanrec(root, depth):
+def scanrec(root, maximum_depth):
     rval = []
 
-    def do_scan(start_dir, output, max_depth):
-        depth = 0
+    depth = 0
+
+    def do_scan(start_dir, output, d):
         for f in os.listdir(start_dir):
             ff = os.path.join(start_dir,f)
             if os.path.isdir(ff):
-                if depth < max_depth:
-                    do_scan(ff, output, depth+1)
+                if d < maximum_depth:
+                    do_scan(ff, output, d + 1)
+                    
             else:
                 output.append(ff[len(os.getcwd()) + 1: ])
 
