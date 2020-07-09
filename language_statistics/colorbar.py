@@ -1,4 +1,4 @@
-import language_bytes
+from language_statistics import language_bytes
 import cairo
 import math
 

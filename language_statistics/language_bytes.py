@@ -2,11 +2,13 @@ import os
 import logging
 import yaml
 import random
+import pkgutil
 
 
 def form_language_dictionary() -> dict:
     # define languages and their associated extensions
-    languages = open("data/languages.yml")
+    languages = pkgutil.get_data(__name__, "data/languages.yml")
+
     parsed_languages = yaml.load(languages, Loader=yaml.FullLoader)
 
     extensions_languages = {}
