@@ -32,7 +32,7 @@ The following flags are available, and they are all optional (if you ignore them
 - **-l or --limit:** how small a language as a percentage of the whole must be to be excluded. *Example: `statistics -l 5` (if it takes up less than 5 percent, it will be grouped with other)*
 - **-m or --maximum:** the maximum number of unique languages to show (excluding 'Other'). *Example: `statistics -m 3` will show at most 3 other languages in addition to 'Other'*
 
-The above flags can be combined as well and are fully optional (`statistics --type png -l 5 -m 3`). If you are ever in doubt you can run `statistics -h` to get a help output on console reminding you of the flags.
+The above flags can be combined as well and are completely optional (`statistics --type png -l 5 -m 3`). If you are ever in doubt you can run `statistics -h` to get a help output on console reminding you of the flags.
 
 #### Zsh Instructions
 Some shells (such as the one for MacOS Catalina) do not use bash. In that case, you need to quickly configure Python commands to be runnable from terminal. There's a quick, temporary option 1 or a long-term, more complicated option 2.
