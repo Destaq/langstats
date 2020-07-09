@@ -9,7 +9,7 @@ def hex_to_rgb(code):
     return tuple(int(hexf[i : i + hlen // 3], 16) for i in range(0, hlen, hlen // 3))
 
 
-def draw_statistics(other: int, maximum: int):
+def draw_statistics(extension: str, other: int, maximum: int):
     data = language_bytes.read_file_data()
 
     bytesum = 0
@@ -40,7 +40,13 @@ def draw_statistics(other: int, maximum: int):
 
     WIDTH, HEIGHT = 410, 200
 
-    surface = cairo.SVGSurface("output.svg", WIDTH, HEIGHT)
+    if extension.lower() == 'svg':
+        surface = cairo.SVGSurface("output.svg", WIDTH, HEIGHT)
+        is_png = False
+    else:
+        surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
+        is_png = True
+
     ctx = cairo.Context(surface)
 
     x, text_x, text_y, text_height = 3, 25, 60, 0
@@ -92,3 +98,6 @@ def draw_statistics(other: int, maximum: int):
         text_x += (
             ctx.text_extents(str(round(language_percentages[language], 2)) + "%")[2] + 30
         )
+
+    if is_png == True:
+        surface.write_to_png("output.png")

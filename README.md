@@ -25,11 +25,14 @@ You should know be able to run the command `statistics` from anywhere in your te
 
 If it works, great! By running `statistics`, the program will search through all files in the root directory and lower, and then create a file named `output.svg` in the root directory! You can view this by right-clicking and then selecting: *View in: \<Your browser here>*. You can also explore the various ways to generate it with argparse.
 
-The following flags are available:
+Likewise, you can also choose to **output the image as a png**, or specify other flags, below.
+
+The following flags are available, and they are all optional (if you ignore them, nothing will happen):
+- **-t or --type:** the type of file outputted - svg or png. Defaults to svg as that is much higher quality. Specify 'png' to choose png. *Example: `statistics -t png`*
 - **-l or --limit:** how small a language as a percentage of the whole must be to be excluded. *Example: `statistics -l 5` (if it takes up less than 5 percent, it will be grouped with other)*
 - **-m or --maximum:** the maximum number of unique languages to show (excluding 'Other'). *Example: `statistics -m 3` will show at most 3 other languages in addition to 'Other'*
 
-The above flags can be combined as well and are fully optional (`statistics -l 5 -m 3`). If you are ever in doubt you can run `statistics -h` to get a help output on console reminding you of the flags.
+The above flags can be combined as well and are fully optional (`statistics --type png -l 5 -m 3`). If you are ever in doubt you can run `statistics -h` to get a help output on console reminding you of the flags.
 
 #### Zsh Instructions
 Some shells (such as the one for MacOS Catalina) do not use bash. In that case, you need to quickly configure Python commands to be runnable from terminal. There's a quick, temporary option 1 or a long-term, more complicated option 2.

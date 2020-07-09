@@ -8,6 +8,14 @@ def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
+        "-t",
+        "--type",
+        nargs="?",
+        default='png',
+        help="Choose whether to export your image as a png or a svg (example: statistics -t svg). Default is png."
+    )
+
+    parser.add_argument(
         "-l",
         "--limit",
         nargs="?",
@@ -27,7 +35,10 @@ def main():
 
     args = parser.parse_args()
 
-    print("Creating file with language bar for current directory...")
+    try:
+        print("Creating file with language bar for current directory...")
 
-    colorbar.draw_statistics(args.limit, args.maximum)
-    print(f"Completed process, image can be found at {os.getcwd()}/output.svg!")
+        colorbar.draw_statistics(args.type, args.limit, args.maximum)
+        print(f"Completed process, image can be found at {os.getcwd()}/output.svg!")
+    except:
+        print("[ERROR] You have entered one or more of your arguments incorrectly!")
