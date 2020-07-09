@@ -57,10 +57,10 @@ def draw_statistics(other: int, maximum: int):
             text_y += 20
 
         ctx.rectangle(
-            x, 20, round(language_percentages[language]) * 4, 10
+            x, 20, round(language_percentages[language] * 4), 10
         )  # modify the third (width)
 
-        x += round(language_percentages[language]) * 4
+        x += round(language_percentages[language] * 4)
 
         code = data[language][1][1:]
         output = hex_to_rgb(code)

@@ -8,8 +8,8 @@ def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
-        "-o",
-        "--other",
+        "-l",
+        "--limit",
         nargs="?",
         type=float,
         default=1,
