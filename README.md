@@ -1,6 +1,8 @@
 # language-statistics
 With `language-statistics`, you can create a high-quality image of the programming languages and their percentages used in your directory. It is **runnable anywhere** and is **highly customizable**, an improved clone of the `linguist` package that comes with GitHub itself.
 
+<center><img src = 'screenshots/output.svg' alt = 'Output image'></center>
+
 ## Features
 ### Available Globally
 This is an executable Python script that can be run from any folder or location on your device. This means that you can easily view the language distribution for folders that don't have the python script in their directories. By implementing this, a *major advantage* is introduced over `linguist`, which can only be used for visualizations for GitHub repositories, often takes hours to refresh, and has very weak text-only command-line functionality.
