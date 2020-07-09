@@ -1,7 +1,9 @@
 # language-statistics
 With `language-statistics`, you can create a high-quality image of the programming languages and their percentages used in your directory. It is **runnable anywhere** and is **highly customizable**, an improved clone of the `linguist` package that comes with GitHub itself.
 
-<center><img src = 'screenshots/output.svg' alt = 'Output image'></center>
+<p align="center">
+  <img src="screenshots/output.svg" alt = "Output image">
+</p>
 
 ## Features
 ### Available Globally
