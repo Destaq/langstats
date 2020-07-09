@@ -28,8 +28,9 @@ setup(
     url=URL,
     install_requires=INSTALL_REQUIRES,
     packages=find_packages(),
-    entry_points={"console_scripts": 
-        ["statistics = language_statistics.statistics:main"]},
+    entry_points={
+        "console_scripts": ["statistics = language_statistics.statistics:main"]
+    },
     include_package_data=True,
     zip_safe=False,
 )
