@@ -29,5 +29,5 @@ def main():
 
     print("Creating file with language bar for current directory...")
 
-    colorbar.draw_statistics(args.other, args.maximum)
+    colorbar.draw_statistics(args.limit, args.maximum)
     print(f"Completed process, image can be found at {os.getcwd()}/output.svg!")
