@@ -38,7 +38,7 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int):
 
     data = removed_dictionary
 
-    WIDTH, HEIGHT = 410, 200
+    WIDTH, HEIGHT = 410, 400
 
     if extension.lower() == 'svg':
         surface = cairo.SVGSurface("output.svg", WIDTH, HEIGHT)
@@ -100,4 +100,14 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int):
         )
 
     if is_png == True:
-        surface.write_to_png("output.png")
+        surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, text_y + 20) # remove the bottom space
+        ctx2 = cairo.Context(surf)
+        ctx2.set_source_surface(surface, 0, 0)
+        ctx2.paint()
+        surf.write_to_png("output.png")
+
+    else:
+        surf = cairo.SVGSurface("output.svg", WIDTH, text_y + 20)
+        ctx2 = cairo.Context(surf)
+        ctx2.set_source_surface(surface, 0, 0)
+        ctx2.paint()
