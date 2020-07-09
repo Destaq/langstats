@@ -8,6 +8,15 @@ def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
+        "-d",
+        "--depth",
+        nargs = "?",
+        default = 2,
+        type = int,
+        help = "The depth from the current directory at which files should be read. A depth of one will only read files in the current directory, a depth of two files in the current directory and those one level below (in subdirs), etc."
+    )
+
+    parser.add_argument(
         "-t",
         "--type",
         nargs="?",
@@ -38,7 +47,7 @@ def main():
     try:
         print("Creating file with language bar for current directory...")
 
-        colorbar.draw_statistics(args.type, args.limit, args.maximum)
+        colorbar.draw_statistics(args.type, args.limit, args.maximum, args.depth - 1)
         print(f"Completed process, image can be found at {os.getcwd()}/output.{args.type}!")
     except:
         print("[ERROR] You have entered one or more of your arguments incorrectly!")

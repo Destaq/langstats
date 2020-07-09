@@ -35,16 +35,29 @@ def form_language_dictionary() -> dict:
     return extensions_languages
 
 
-def get_files() -> list:
+# reproduced from Jean-François Fabre on Stack Overflow
+# under creative commons license: https://stackoverflow.com/a/42720847/12876940
+def scanrec(root, depth):
+    rval = []
+
+    def do_scan(start_dir, output, max_depth):
+        depth = 0
+        for f in os.listdir(start_dir):
+            ff = os.path.join(start_dir,f)
+            if os.path.isdir(ff):
+                if depth < max_depth:
+                    do_scan(ff, output, depth+1)
+            else:
+                output.append(ff[len(os.getcwd()) + 1: ])
+
+    do_scan(root, rval, depth)
+    return rval
+
+def get_files(depth) -> list:
     # all files in the root directory and lower
-    onlyfiles = []
-    for path, subdirs, files in os.walk(
-        os.getcwd()
-    ):  # change for command line to any directory
-        for name in files:
-            filename = os.path.join(path, name)
-            filename = filename[len(os.getcwd()) + 1 :]
-            onlyfiles.append(filename)
+    
+    onlyfiles = scanrec(os.getcwd(), depth)
+
     return onlyfiles
 
 
@@ -77,8 +90,8 @@ def match_language(filename: str, extension: str) -> dict:
     return files_bytes
 
 
-def read_file_data() -> dict:
-    onlyfiles = get_files()
+def read_file_data(depth) -> dict:
+    onlyfiles = get_files(depth)
     files_bytes = {}
     for i in range(len(onlyfiles)):
         filename, file_extension = os.path.splitext(onlyfiles[i])
