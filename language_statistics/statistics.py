@@ -11,7 +11,7 @@ def main():
         "-t",
         "--type",
         nargs="?",
-        default='png',
+        default='svg',
         help="Choose whether to export your image as a png or a svg (example: statistics -t svg). Default is png."
     )
 
