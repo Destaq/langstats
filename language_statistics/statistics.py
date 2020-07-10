@@ -13,7 +13,7 @@ def main():
         nargs = "?",
         default = 3,
         type = int,
-        help = "The depth from the current directory at which files should be read. A depth of one will only read files in the current directory, a depth of two files in the current directory and those one level below (in subdirs), etc. Affect execution time."
+        help = "The depth from the current directory at which files should be read. A depth of one will only read files in the current directory, a depth of two files in the current directory and those one level below (in subdirs), etc. Slightly affects execution time."
     )
 
     parser.add_argument(
