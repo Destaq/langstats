@@ -11,8 +11,8 @@ def hex_to_rgb(code):
     return tuple(int(hexf[i : i + hlen // 3], 16) for i in range(0, hlen, hlen // 3))
 
 
-def draw_statistics(extension: str, other: int, maximum: int, depth: int):
-    data = language_bytes.read_file_data(depth)
+def draw_statistics(extension: str, other: int, maximum: int, depth: int, exclude: list):
+    data = language_bytes.read_file_data(depth, exclude)
 
     bytesum = 0
     for ele in data:

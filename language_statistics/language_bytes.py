@@ -92,12 +92,13 @@ def match_language(filename: str, extension: str) -> dict:
     return files_bytes
 
 
-def read_file_data(depth) -> dict:
+def read_file_data(depth, excludes) -> dict:
     onlyfiles = get_files(depth)
     files_bytes = {}
     for i in range(len(onlyfiles)):
         filename, file_extension = os.path.splitext(onlyfiles[i])
-        files_bytes = match_language(filename, file_extension)
+        if file_extension not in excludes:
+            files_bytes = match_language(filename, file_extension)
 
     data = {k: v for k, v in reversed(sorted(files_bytes.items(), key=lambda x: x[1]))}
 

@@ -42,12 +42,21 @@ def main():
         help="Number of different languages to display before setting the rest to 'Other'",
     )
 
+    parser.add_argument(
+        '-e',
+        '--exclude',
+        nargs = '*',
+        default = '',
+        help = 'Which extensions to exclude, can select multiple (e.g. statistics -e .py .java .php)',
+        required = False
+    )
+
     args = parser.parse_args()
 
     # try:
     print("Creating file with language bar for current directory...")
 
-    colorbar.draw_statistics(args.type, args.limit, args.maximum, args.depth - 1)
+    colorbar.draw_statistics(args.type, args.limit, args.maximum, args.depth - 1, args.exclude)
     print(f"Completed process, image can be found at {os.getcwd()}/output.{args.type}!")
     # except:
     #     print("[ERROR] You have entered one or more of your arguments incorrectly!")
