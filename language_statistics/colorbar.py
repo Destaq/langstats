@@ -32,9 +32,15 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int):
                 removed_dictionary['Other'] = removed_dictionary.pop(language)
                 removed_dictionary['Other'][1] = '#aaaaaa'
         else:
-            language_percentages[language] = round(data[language][0] / bytesum, 4) * 100
+            try:
+                language_percentages[language] = round(data[language][0] / bytesum, 4) * 100
+            except ZeroDivisionError:
+                language_percentages[language] = 0
 
-        current_total_percentage += round(data[language][0] / bytesum, 4) * 100
+        try:
+            current_total_percentage += round(data[language][0] / bytesum, 4) * 100
+        except ZeroDivisionError:
+            pass
 
         count += 1
 
