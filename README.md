@@ -29,6 +29,8 @@ These will clone pycairo, install its dependencies, and then add it as a Python 
 ```
 5. Type: `python3 -m pip install -e .`. Don't forget the `.` at the end! This will install the package and make it executable using the information in `setup.py`.
 
+*Note: uninstalling is easy too! You can type `python3 -m pip uninstall language-statistics` or you can simply edit/update your clone of the repo! Because this is a local package, it will stay completely synced with the folder it was made in.*
+
 ### Running the program
 You should know be able to run the command `statistics` from anywhere in your terminal and get the `.svg` file. If not, it may be because you are using `zsh` or a non-bash shell, in which case you can follow the instructions [here](####zsh-instructions).
 
