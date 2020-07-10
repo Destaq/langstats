@@ -1,5 +1,5 @@
 # language-statistics
-With `language-statistics`, you can create a high-quality image of the programming languages and their percentages used in your directory. It is **runnable anywhere** and is **highly customizable**, an improved clone of the `linguist` package that comes with GitHub itself. And best of all, it takes just two clicks to install and one line to run!
+With `language-statistics`, you can create a high-quality image (both as an SVG or PNG) of the programming languages and their percentages used in your directory. It is **runnable anywhere** and is **highly customizable**, an improved clone of the `linguist` package that comes with GitHub itself. And best of all, it takes just two clicks to install and one line to run!
 
 <p align="center">
   <img src="screenshots/output.svg" alt = "Output image">
@@ -18,7 +18,7 @@ This program is bundled as a *Python package*. This makes it very easy to instal
 1. **Clone** or **download** this repository by going to the top right, clicking `Code`, and clicking `Download zip` or clone with HTTPS/GitHub Desktop.
 2. If you downloaded the zip, make sure to unzip it in a location that you will remember (such as `Desktop`, `Downloads`, `Documents`, etc.)
 3. Navigate to the root folder of the program in your terminal. For example, if you had it unzipped in your Desktop as `language-statistics`, you'd type: `cd Desktop/language-statistics`.
-4. Type: `python3 -m pip install -e .`. This will install the package and make it executable using the information in `setup.py`. 
+4. Type: `python3 -m pip install -e .`. Don't forget the `.` at the end! This will install the package and make it executable using the information in `setup.py`. 
 
 ### Running the program
 You should know be able to run the command `statistics` from anywhere in your terminal and get the `.svg` file. If not, it may be because you are using `zsh` or a non-bash shell, in which case you can follow the instructions [here](####zsh-instructions).
@@ -61,7 +61,7 @@ In your terminal, type: `bash -login`. You will now be in the bash shell. You ca
 ## Requirements
 All you need to do is make sure that you are running this on **Python 3** and have **pip installed** (`sudo easy_install pip`).
 
-There is no need to individually install any packages because when you create the local package, it will automatically install those for you as it is being created.
+There is no need to individually install any packages because when you create the local package, it will automatically install those for you as it is being created. As long as you correctly type in `python3 -m pip install -e .` in the root directory of the project, you're good to go!
 
 ### Credits
 I based this idea off of [linguist](https://github.com/github/linguist), which is the default GitHub program used to generate the color bar used in every repository. I also used their `languages.yml` file to recognize languages (with permission due to the MIT License).
