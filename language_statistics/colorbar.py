@@ -65,7 +65,8 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int):
                 y_len += 30
 
             x_len += ctx_sample.text_extents(language + " ")[2] + 10
-            x_len += ctx_sample.text_extents(str(round(language_percentages[language], 2)) + "%")[2] + 30
+            output_2f = "%.2f" % round(language_percentages[language], 2)
+            x_len += ctx_sample.text_extents(output_2f + "%")[2] + 30
 
         surface = cairo.SVGSurface("output.svg", WIDTH, y_len + 30) # create some bottom space
         is_png = False
@@ -120,10 +121,11 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int):
 
         ctx.select_font_face("Arial", cairo.FONT_SLANT_ITALIC, cairo.FONT_WEIGHT_NORMAL)
         ctx.set_font_size(14)
-        ctx.show_text(str(round(language_percentages[language], 2)) + "%")
+        output_2f = "%.2f" % round(language_percentages[language], 2)
+        ctx.show_text(output_2f + "%")
 
         text_x += (
-            ctx.text_extents(str(round(language_percentages[language], 2)) + "%")[2] + 30
+            ctx.text_extents(output_2f + "%")[2] + 30
         )
 
     if is_png == True:
