@@ -10,7 +10,7 @@ With `language-statistics`, you can create a high-quality image (both as an SVG 
 This is an executable Python script that can be run from any folder or location on your device. This means that you can easily view the language distribution for folders that don't have the python script in their directories. By implementing this, a *major advantage* is introduced over `linguist`, which can only be used for visualizations for GitHub repositories, often takes hours to refresh, and has very weak text-only command-line functionality.
 
 ### Tweakable
-It's very easy to change the look of your outputted image. You can easily specify at what percentage programming languages will merge into the 'Other' category, as well as how many unique languages to display at once. Likewise, you can limit the depth that the program searches for files based on distance from the root directory.
+It's very easy to change the look of your outputted image. You can easily specify at what percentage programming languages will merge into the 'Other' category, as well as how many unique languages to display at once. Likewise, you can limit the depth that the program searches for files based on distance from the root directory. You can even choose which file extensions to ignore!
 
 ## Usage
 ### Installation
@@ -39,12 +39,13 @@ If it works, great! By running `statistics`, the program will search through all
 Likewise, you can also choose to **output the image as a png**, or specify other flags, below.
 
 The following flags are available, and they are all optional (if you ignore them, nothing will happen):
-- **-d or --depth:** how many directories 'deep' the program should search for files in, default 3. A depth of one means reading files only in the root directory, a depth of 2 means files only in root directory + subdirectories, etc. *Example: `statistics -d 5` will search to a 'depth' of 5 from the root directory. <br>I highly recommend **trying this command out on your Desktop** with a depth of 5 or 6, the results are incredible!
+- **-d or --depth:** how many directories 'deep' the program should search for files in, default 3. A depth of one means reading files only in the root directory, a depth of 2 means files only in root directory + subdirectories, etc. *Example: `statistics -d 5` will search to a 'depth' of 5 from the root directory.*<br>I highly recommend **trying this command out on your Desktop** with a depth of 5 or 6, the results are incredible!
 - **-t or --type:** the type of file outputted - svg or png. Defaults to svg as that is much higher quality. Specify 'png' to choose png. *Example: `statistics -t png`*
 - **-l or --limit:** how small a language as a percentage of the whole must be to be excluded. Default is 1. *Example: `statistics -l 5` (if it takes up less than 5 percent, it will be grouped with other)*
 - **-m or --maximum:** the maximum number of unique languages to show (excluding 'Other'). Default is 8. *Example: `statistics -m 3` will show at most 3 other languages in addition to 'Other'*
+- **-e or --exclude:** which file extensions to exclude when searching for files and creating the image. These files will be ignored and will not affect the total percentage or show up. You can specify multiple. *Example: `statistics -e .ipynb .css .html`*
 
-The above flags can be combined as well and are completely optional (`statistics --type png -l 5 -m 3`). If you are ever in doubt you can run `statistics -h` to get a help output on console reminding you of the flags.
+The above flags can be used in any order, combined, and are completely optional (`statistics --type png -l 5 -m 3 --depth 4 -e .ipynb`). If you are ever in doubt you can run `statistics -h` to get a help output on console reminding you of the flags.
 
 #### Zsh Instructions
 Some shells (such as the one for MacOS Catalina) do not use bash. In that case, you need to quickly configure Python commands to be runnable from terminal. There's a quick, temporary option 1 or a long-term, more complicated option 2.
