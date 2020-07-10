@@ -18,7 +18,16 @@ This program is bundled as a *Python package*. This makes it very easy to instal
 1. **Clone** or **download** this repository by going to the top right, clicking `Code`, and clicking `Download zip` or clone with HTTPS/GitHub Desktop.
 2. If you downloaded the zip, make sure to unzip it in a location that you will remember (such as `Desktop`, `Downloads`, `Documents`, etc.)
 3. Navigate to the root folder of the program in your terminal. For example, if you had it unzipped in your Desktop as `language-statistics`, you'd type: `cd Desktop/language-statistics`.
-4. Type: `python3 -m pip install -e .`. Don't forget the `.` at the end! This will install the package and make it executable using the information in `setup.py`. 
+4. **UBUNTU ONLY**: Ubuntu and `pycairo` don't like each other. You have to manually install `pycairo`'s dependencies first by running the following commands below.
+These will clone pycairo, install its dependencies, and then add it as a Python package locally. Make sure to change the `cd /home/username/` etc. to wherever you want to clone it.
+```
+>>> cd /home/username/Programming/Repositories/
+>>> sudo git clone git://git.cairographics.org/git/pycairo
+>>> sudo apt-get install libcairo2-dev libjpeg-dev  libgif-dev
+>>> cd pycairo
+>>> sudo python3 setup.py install
+```
+5. Type: `python3 -m pip install -e .`. Don't forget the `.` at the end! This will install the package and make it executable using the information in `setup.py`.
 
 ### Running the program
 You should know be able to run the command `statistics` from anywhere in your terminal and get the `.svg` file. If not, it may be because you are using `zsh` or a non-bash shell, in which case you can follow the instructions [here](####zsh-instructions).
