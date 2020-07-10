@@ -61,8 +61,7 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int):
             x_len += ctx_sample.text_extents(language + " ")[2] + 10
             x_len += ctx_sample.text_extents(str(round(language_percentages[language], 2)) + "%")[2] + 30
 
-        y_len += 20 # in case 'Other' falls below the boundary
-        surface = cairo.SVGSurface("output.svg", WIDTH, y_len)
+        surface = cairo.SVGSurface("output.svg", WIDTH, y_len + 30) # create some bottom space
         is_png = False
 
     else:
@@ -128,10 +127,8 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int):
 
         im = Image.open("output.png") 
 
-        im.crop((0, 0, WIDTH, text_y + 20)).save("output.png")
+        im.crop((0, 0, WIDTH, text_y + 30)).save("output.png") # in case last is not other
 
 
     else:
-        # a bit blurry when cropped!
-        target  = ctx.get_target()
-        overlay = target.create_similar(cairo.CONTENT_COLOR_ALPHA, 100, 100)
+        pass
