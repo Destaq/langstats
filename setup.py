@@ -14,7 +14,8 @@ DESCRIPTION = "Generates a colored image showing programming language distributi
 LONG_DESCRIPTION = (HERE / "README.md").read_text()
 LONG_DESC_TYPE = "text/markdown"
 
-INSTALL_REQUIRES = ["PyYAML", "pycairo", "Pillow"]
+INSTALL_REQUIRES = ["pycairo>=1.19.1", "Pillow>=4.1.1", "PyYAML>=5.3.1"]
+
 
 setup(
     name=PACKAGE_NAME,
