@@ -1,5 +1,5 @@
 # language-statistics
-With `language-statistics`, you can create a high-quality image of the programming languages and their percentages used in your directory. It is **runnable anywhere** and is **highly customizable**, an improved clone of the `linguist` package that comes with GitHub itself.
+With `language-statistics`, you can create a high-quality image of the programming languages and their percentages used in your directory. It is **runnable anywhere** and is **highly customizable**, an improved clone of the `linguist` package that comes with GitHub itself. And best of all, it takes just two clicks to install and one line to run!
 
 <p align="center">
   <img src="screenshots/output.svg" alt = "Output image">
@@ -59,11 +59,9 @@ In your terminal, type: `bash -login`. You will now be in the bash shell. You ca
 5. All done! Just restart your terminal and you will be able to run the `statistics` command and *any* other Python command-line commands from `zsh` as well.
 
 ## Requirements
-There's only two requirements, both available on PyPI! You can install them individually or install both at once with `pip3 install -r requirements.txt` in the directory of the program.
-- pycairo: `pip3 install pycairo`
-- PyYAML: `pip3 install PyYAML`
+All you need to do is make sure that you are running this on **Python 3** and have **pip installed** (`sudo easy_install pip`).
 
-Of course, you need ot make sure that you also have pip installed (`sudo easy_install pip`).
+There is no need to individually install any packages because when you create the local package, it will automatically install those for you as it is being created.
 
 ### Credits
 I based this idea off of [linguist](https://github.com/github/linguist), which is the default GitHub program used to generate the color bar used in every repository. I also used their `languages.yml` file to recognize languages (with permission due to the MIT License).
