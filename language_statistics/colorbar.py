@@ -1,6 +1,8 @@
 from language_statistics import language_bytes
 import cairo
 import math
+from PIL import Image
+import os
 
 
 def hex_to_rgb(code):
@@ -37,12 +39,32 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int):
         count += 1
 
     data = removed_dictionary
-
     WIDTH, HEIGHT = 410, 400
 
+
+    y_len = 60
+    x_len = 25
+    surf_sample = cairo.SVGSurface("output.svg", WIDTH, HEIGHT)
+    ctx_sample = cairo.Context(surf_sample)
+
     if extension.lower() == 'svg':
-        surface = cairo.SVGSurface("output.svg", WIDTH, HEIGHT)
+        for language in language_percentages:
+            if (
+            x_len
+            + ctx_sample.text_extents(language + ' ')[2]
+            + 40
+            + ctx_sample.text_extents(str(round(language_percentages[language], 2)))[2]
+            >= WIDTH):
+                x_len = 25
+                y_len += 30
+
+            x_len += ctx_sample.text_extents(language + " ")[2] + 10
+            x_len += ctx_sample.text_extents(str(round(language_percentages[language], 2)) + "%")[2] + 30
+
+        y_len += 20 # in case 'Other' falls below the boundary
+        surface = cairo.SVGSurface("output.svg", WIDTH, y_len)
         is_png = False
+
     else:
         surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
         is_png = True
@@ -100,14 +122,16 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int):
         )
 
     if is_png == True:
-        surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, text_y + 20) # remove the bottom space
-        ctx2 = cairo.Context(surf)
-        ctx2.set_source_surface(surface, 0, 0)
-        ctx2.paint()
-        surf.write_to_png("output.png")
+        # crop image
+
+        surface.write_to_png("output.png")
+
+        im = Image.open("output.png") 
+
+        im.crop((0, 0, WIDTH, text_y + 20)).save("output.png")
+
 
     else:
-        surf = cairo.SVGSurface("output.svg", WIDTH, text_y + 20)
-        ctx2 = cairo.Context(surf)
-        ctx2.set_source_surface(surface, 0, 0)
-        ctx2.paint()
+        # a bit blurry when cropped!
+        target  = ctx.get_target()
+        overlay = target.create_similar(cairo.CONTENT_COLOR_ALPHA, 100, 100)

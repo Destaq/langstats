@@ -44,10 +44,10 @@ def main():
 
     args = parser.parse_args()
 
-    try:
-        print("Creating file with language bar for current directory...")
+    # try:
+    print("Creating file with language bar for current directory...")
 
-        colorbar.draw_statistics(args.type, args.limit, args.maximum, args.depth - 1)
-        print(f"Completed process, image can be found at {os.getcwd()}/output.{args.type}!")
-    except:
-        print("[ERROR] You have entered one or more of your arguments incorrectly!")
+    colorbar.draw_statistics(args.type, args.limit, args.maximum, args.depth - 1)
+    print(f"Completed process, image can be found at {os.getcwd()}/output.{args.type}!")
+    # except:
+    #     print("[ERROR] You have entered one or more of your arguments incorrectly!")
