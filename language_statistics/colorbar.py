@@ -68,12 +68,16 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int, exclud
             output_2f = "%.2f" % round(language_percentages[language], 2)
             x_len += ctx_sample.text_extents(output_2f + "%")[2] + 30
 
+        os.remove('output.svg')
+
         surface = cairo.SVGSurface("output.svg", WIDTH, y_len + 30) # create some bottom space
         is_png = False
 
     else:
+        os.remove('output.svg')
         surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
         is_png = True
+
 
     ctx = cairo.Context(surface)
     ctx.rectangle(0, 0, 410, 400)
