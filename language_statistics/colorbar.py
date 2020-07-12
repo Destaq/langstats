@@ -76,6 +76,9 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int, exclud
         is_png = True
 
     ctx = cairo.Context(surface)
+    ctx.rectangle(0, 0, 410, 400)
+    ctx.set_source_rgb(1, 1, 1)
+    ctx.fill()
 
     x, text_x, text_y, text_height = 3, 25, 60, 0
     for language in language_percentages:
