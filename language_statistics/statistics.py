@@ -13,7 +13,7 @@ def main():
         nargs = "?",
         default = 3,
         type = int,
-        help = "The depth from the current directory at which files should be read. A depth of one will only read files in the current directory, a depth of two files in the current directory and those one level below (in subdirs), etc. Slightly affects execution time."
+        help = "The depth from the current directory at which files should be read (default 3). A depth of one will only read files in the current directory, a depth of two files in the current directory and those one level below (in subdirs), etc. Slightly affects execution time."
     )
 
     parser.add_argument(
@@ -21,7 +21,7 @@ def main():
         "--type",
         nargs="?",
         default='svg',
-        help="Choose whether to export your image as a png or a svg (example: statistics -t svg). Default is png."
+        help="Choose whether to export your image as a png or a svg (example: statistics -t svg). Default is svg."
     )
 
     parser.add_argument(
@@ -30,7 +30,7 @@ def main():
         nargs="?",
         type=float,
         default=1,
-        help="Files below this percentage of the directory as a whole will be labeled as other.",
+        help="Files below this percentage of the directory as a whole will be labeled as other. Default is 1.",
     )
 
     parser.add_argument(
@@ -39,7 +39,7 @@ def main():
         nargs="?",
         type=int,
         default=8,
-        help="Number of different languages to display before setting the rest to 'Other'",
+        help="Number of different languages to display before setting the rest to 'Other'. Default is 8.",
     )
 
     parser.add_argument(
@@ -47,7 +47,7 @@ def main():
         '--exclude',
         nargs = '*',
         default = '',
-        help = 'Which extensions to exclude, can select multiple (e.g. statistics -e .py .java .php)',
+        help = 'Which extensions to exclude, can select multiple (e.g. statistics -e .py .java .php). Default is none.',
         required = False
     )
 
