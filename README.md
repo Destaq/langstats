@@ -44,6 +44,7 @@ The following flags are available, and they are all optional (if you ignore them
 - **-l or --limit:** how small a language as a percentage of the whole must be to be excluded. Default is 1. *Example: `statistics -l 5` (if it takes up less than 5 percent, it will be grouped with other)*
 - **-m or --maximum:** the maximum number of unique languages to show (excluding 'Other'). Default is 8. *Example: `statistics -m 3` will show at most 3 other languages in addition to 'Other'*
 - **-e or --exclude:** which file extensions to exclude when searching for files and creating the image. These files will be ignored and will not affect the total percentage or show up. You can specify multiple. *Example: `statistics -e .ipynb .css .html`*
+- **-c or --colors:** which hex colors to be used for creating the image. Applied left to right from highest perentage to lowest. If no colors are provided, or too few, the YAML will be used or another strategy to pick the remainder of the colors. *Example: `statistics -c ffb6c1 00ff00`*
 
 The above flags can be used in any order, combined, and are completely optional (`statistics --type png -l 5 -m 3 --depth 4 -e .ipynb`). If you are ever in doubt you can run `statistics -h` to get a help output on console reminding you of the flags.
 

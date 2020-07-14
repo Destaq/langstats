@@ -51,12 +51,19 @@ def main():
         required = False
     )
 
+    parser.add_argument(
+        '-c',
+        '--colors',
+        nargs = '*',
+        default = '',
+        help = 'List of hex colors to use. Default is none, indicating to use the YAML colors.',
+        required = False
+    )
     args = parser.parse_args()
 
     # try:
     print("Creating file with language bar for current directory...")
-
-    colorbar.draw_statistics(args.type, args.limit, args.maximum, args.depth - 1, args.exclude)
+    colorbar.draw_statistics(args.type, args.limit, args.maximum, args.depth - 1, args.exclude, args.colors)
     print(f"Completed process, image can be found at {os.getcwd()}/output.{args.type}!")
     # except:
     #     print("[ERROR] You have entered one or more of your arguments incorrectly!")

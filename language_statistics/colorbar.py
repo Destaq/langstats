@@ -11,7 +11,7 @@ def hex_to_rgb(code):
     return tuple(int(hexf[i : i + hlen // 3], 16) for i in range(0, hlen, hlen // 3))
 
 
-def draw_statistics(extension: str, other: int, maximum: int, depth: int, exclude: list):
+def draw_statistics(extension: str, other: int, maximum: int, depth: int, exclude: list, colors: list):
     data = language_bytes.read_file_data(depth, exclude)
 
     bytesum = 0
@@ -81,6 +81,7 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int, exclud
     ctx.set_source_rgb(1, 1, 1)
     ctx.fill()
 
+    color_index = 0
     x, text_x, text_y, text_height = 3, 25, 60, 0
     for language in language_percentages:
 
@@ -100,7 +101,11 @@ def draw_statistics(extension: str, other: int, maximum: int, depth: int, exclud
 
         x += round(language_percentages[language] * 4)
 
-        code = data[language][1][1:]
+        if (color_index <= len(colors) -1):
+            code = colors[color_index]
+            color_index += 1
+        else:
+            code = data[language][1][1:]
         output = hex_to_rgb(code)
 
         ctx.set_source_rgb(output[0] / 255, output[1] / 255, output[2] / 255)
