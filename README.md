@@ -78,3 +78,6 @@ There is no need to individually install any packages because when you create th
 
 ### Credits
 I based this idea off of [linguist](https://github.com/github/linguist), which is the default GitHub program used to generate the color bar used in every repository. I also used their `languages.yml` file to recognize languages (with permission due to the MIT License).
+
+### Todo
+- Parse files that don't have an extension (*e.g. Dockerfile*). **Open to pull requests.**
