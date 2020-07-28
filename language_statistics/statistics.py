@@ -59,11 +59,18 @@ def main():
         help = 'List of hex colors to use. Default is none, indicating to use the YAML colors.',
         required = False
     )
+
+    parser.add_argument(
+        "-n",
+        "--names",
+        nargs = "*",
+        default = '',
+        help = "Which filenames to exclude, can select multiple (e.g. statistics -n Dockerfile Cakefile). Default is none.",
+        required = False
+    )
+
     args = parser.parse_args()
 
-    # try:
     print("Creating file with language bar for current directory...")
-    colorbar.draw_statistics(args.type, args.limit, args.maximum, args.depth - 1, args.exclude, args.colors)
+    colorbar.draw_statistics(args.type, args.limit, args.maximum, args.depth - 1, args.exclude, args.names, args.colors)
     print(f"Completed process, image can be found at {os.getcwd()}/output.{args.type}!")
-    # except:
-    #     print("[ERROR] You have entered one or more of your arguments incorrectly!")

@@ -132,7 +132,7 @@ def match_filename(filename: str):
 
     return files_bytes
 
-def read_file_data(depth, excludes) -> dict:
+def read_file_data(depth, excludes, exclude_name) -> dict:
     onlyfiles = get_files(depth)
     files_bytes = {}
     for i in range(len(onlyfiles)):
@@ -141,7 +141,9 @@ def read_file_data(depth, excludes) -> dict:
             files_bytes = match_language(filename, file_extension)
 
         elif file_extension == '':
-            files_bytes = match_filename(filename)
+            # support for excluding named files
+            if filename not in exclude_name:
+                files_bytes = match_filename(filename)
 
     data = {k: v for k, v in reversed(sorted(files_bytes.items(), key=lambda x: x[1]))}
 
