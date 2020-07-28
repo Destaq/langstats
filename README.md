@@ -39,7 +39,7 @@ You should know be able to run the command `statistics` from anywhere in your te
 
 If it works, great! By running `statistics`, the program will search through all files in the root directory and lower, and then create a file named `output.svg` in the root directory! You can view this by right-clicking and then selecting: *View in: \<Your browser here>*. You can also explore the various ways to generate it with argparse.
 
-Likewise, you can also choose to **output the image as a png**, or specify other flags, below.
+Likewise, you can also choose to **output the image as a png**, **exlcude certain files**, or tweak other flags by looking below.
 
 The following flags are available, and they are all optional (if you ignore them, nothing will happen):
 - **-d or --depth:** how many directories 'deep' the program should search for files in, default 3. A depth of one means reading files only in the root directory, a depth of 2 means files only in root directory + subdirectories, etc. *Example: `statistics -d 5` will search to a 'depth' of 5 from the root directory.*<br>I highly recommend **trying this command out on your Desktop** with a depth of 5 or 6, the results are incredible!
@@ -47,11 +47,12 @@ The following flags are available, and they are all optional (if you ignore them
 - **-l or --limit:** how small a language as a percentage of the whole must be to be excluded. Default is 1. *Example: `statistics -l 5` (if it takes up less than 5 percent, it will be grouped with other)*
 - **-m or --maximum:** the maximum number of unique languages to show (excluding 'Other'). Default is 8. *Example: `statistics -m 3` will show at most 3 other languages in addition to 'Other'*
 - **-e or --exclude:** which file extensions to exclude when searching for files and creating the image. These files will be ignored and will not affect the total percentage or show up. You can specify multiple. *Example: `statistics -e .ipynb .css .html`*
+- **-n or --names:** which filenames to exclude (for files that do not have an extension, such as a `Dockerfile`). You can specify multiple. *Example: `statistics -n Dockerfile Cakefile Emakefile`*
 - **-c or --colors:** which hex colors to be used for creating the image. Applied left to right from highest percentage to lowest. If no colors are provided, or too few, the YAML will be used or another strategy to pick the remainder of the colors. *Example: `statistics -c ffb6c1 00ff00`*
 
 The above flags can be used in any order, combined, and are completely optional (`statistics --type png -l 5 -m 3 --depth 4 -e .ipynb`). If you are ever in doubt you can run `statistics -h` to get a help output on console reminding you of the flags.
 
-#### Zsh Instructions
+#### Zsh Instructions [MAC ONLY]
 Some shells (such as the one for MacOS Catalina) do not use bash. In that case, you need to quickly configure Python commands to be runnable from terminal. There's a quick, temporary option 1 or a long-term, more complicated option 2.
 
 ##### Option 1 - Quick but Temporary
