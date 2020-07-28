@@ -12,6 +12,9 @@ This is an executable Python script that can be run from any folder or location 
 ### Tweakable
 It's very easy to change the look of your outputted image. You can easily specify at what percentage programming languages will merge into the 'Other' category, as well as how many unique languages to display at once. Likewise, you can limit the depth that the program searches for files based on distance from the root directory. You can even choose which file extensions to ignore!
 
+### Smart
+The program can recognize filenames that do not have an extension, such as a `Dockerfile` or a `Cakefile` without an issue.
+
 ## Usage
 ### Installation
 This program is bundled as a *Python package*. This makes it very easy to install, cross-platform, and available globally. All you need to do is run the command `statistics` from *anywhere* in order to get your outputted image. These are the steps you need to take to install the Python package locally on your device (PyPI package coming soon).
@@ -78,6 +81,3 @@ There is no need to individually install any packages because when you create th
 
 ### Credits
 I based this idea off of [linguist](https://github.com/github/linguist), which is the default GitHub program used to generate the color bar used in every repository. I also used their `languages.yml` file to recognize languages (with permission due to the MIT License).
-
-### Todo
-- Parse files that don't have an extension (*e.g. Dockerfile*). **Open to pull requests.**
