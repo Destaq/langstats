@@ -112,24 +112,28 @@ def match_language(filename: str, extension: str) -> dict:
 
 # match the correct filename to its language
 def match_filename(filename: str):
-    if (
-        filenames_languages[filename][1] == "programming"
-        or filenames_languages[filename][1] == "markup"
-    ):
-        language = filenames_languages[filename][0]
-        files_bytes[language] = [0, filenames_languages[filename][2]]
+    try:
+        if (
+            filenames_languages[filename][1] == "programming"
+            or filenames_languages[filename][1] == "markup"
+        ):
+            language = filenames_languages[filename][0]
+            files_bytes[language] = [0, filenames_languages[filename][2]]
 
-        if "language" in files_bytes:  # either create key or add to key
-                files_bytes[language][0] += os.stat(
-                    filename
-                ).st_size  # add bytes size of language to dictionary
-        else:
-            # check if it is not an empty file
-            if os.stat(filename).st_size != 0:
-                files_bytes[language][0] = os.stat(filename).st_size
+            if "language" in files_bytes:  # either create key or add to key
+                    files_bytes[language][0] += os.stat(
+                        filename
+                    ).st_size  # add bytes size of language to dictionary
             else:
-                pass
-
+                # check if it is not an empty file
+                if os.stat(filename).st_size != 0:
+                    files_bytes[language][0] = os.stat(filename).st_size
+                else:
+                    pass
+    # file is not a recognized file type (e.g. .DS_Store)
+    except KeyError:
+        pass
+    
     return files_bytes
 
 def read_file_data(depth, excludes, exclude_name) -> dict:
