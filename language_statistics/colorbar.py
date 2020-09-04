@@ -2,7 +2,6 @@ from language_statistics import language_bytes
 import cairo
 import math
 from PIL import Image
-import os
 
 
 def hex_to_rgb(code):
