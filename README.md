@@ -35,7 +35,7 @@ These will clone pycairo, install its dependencies, and then add it as a Python 
 *Note: uninstalling is easy too! You can type `python3 -m pip uninstall language-statistics` or you can simply edit/update your clone of the repo! Because this is a local package, it will stay completely synced with the folder it was made in.*
 
 ### Running the program
-You should know be able to run the command `statistics` from anywhere in your terminal and get the `.svg` file. If not, it may be because you are using `zsh` or a non-bash shell, in which case you can follow the instructions [here](####zsh-instructions).
+You should now be able to run the command `statistics` from anywhere in your terminal and get the `.svg` file. If not, it may be because you are using `zsh` or a non-bash shell, in which case you can follow the instructions [here](####zsh-instructions).
 
 If it works, great! By running `statistics`, the program will search through all files in the root directory and lower, and then create a file named `output.svg` in the root directory! You can view this by right-clicking and then selecting: *View in: \<Your browser here>*. You can also explore the various ways to generate it with argparse.
 
