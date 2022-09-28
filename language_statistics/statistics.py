@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 import argparse
-from language_statistics import colorbar
 import os
+
+from language_statistics import colorbar
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -10,10 +12,10 @@ def main():
     parser.add_argument(
         "-d",
         "--depth",
-        nargs = "?",
-        default = 3,
-        type = int,
-        help = "The depth from the current directory at which files should be read (default 3). A depth of one will only read files in the current directory, a depth of two files in the current directory and those one level below (in subdirs), etc. Slightly affects execution time."
+        nargs="?",
+        default=3,
+        type=int,
+        help="The depth from the current directory at which files should be read (default 3). A depth of one will only read files in the current directory, a depth of two files in the current directory and those one level below (in subdirs), etc. Slightly affects execution time."
     )
 
     parser.add_argument(
@@ -45,32 +47,43 @@ def main():
     parser.add_argument(
         '-e',
         '--exclude',
-        nargs = '*',
-        default = '',
-        help = 'Which extensions to exclude, can select multiple (e.g. statistics -e .py .java .php). Default is none.',
-        required = False
+        nargs='*',
+        default='',
+        help='Which extensions to exclude, can select multiple (e.g. statistics -e .py .java .php). Default is none.',
+        required=False
     )
 
     parser.add_argument(
         '-c',
         '--colors',
-        nargs = '*',
-        default = '',
-        help = 'List of hex colors to use. Default is none, indicating to use the YAML colors.',
-        required = False
+        nargs='*',
+        default='',
+        help='List of hex colors to use. Default is none, indicating to use the YAML colors.',
+        required=False
     )
 
     parser.add_argument(
         "-n",
         "--names",
-        nargs = "*",
-        default = '',
-        help = "Which filenames to exclude, can select multiple (e.g. statistics -n Dockerfile Cakefile). Default is none.",
-        required = False
+        nargs="*",
+        default='',
+        help="Which filenames to exclude, can select multiple (e.g. statistics -n Dockerfile Cakefile). Default is "
+             "none.",
+        required=False
+    )
+
+    parser.add_argument(
+        "-s",
+        "--skip-dirs",
+        nargs='*',
+        default='',
+        help='List of relative directory paths to exclude when generating the color bar.',
+        required=False
     )
 
     args = parser.parse_args()
 
     print("Creating file with language bar for current directory...")
-    colorbar.draw_statistics(args.type, args.limit, args.maximum, args.depth - 1, args.exclude, args.names, args.colors)
+    colorbar.draw_statistics(args.type, args.limit, args.maximum, args.depth - 1, args.exclude, args.skip_dirs,
+                             args.names, args.colors)
     print(f"Completed process, image can be found at {os.getcwd()}/output.{args.type}!")

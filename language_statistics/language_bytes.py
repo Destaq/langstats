@@ -55,29 +55,29 @@ def form_language_dictionary() -> dict:
 
 # reproduced from Jean-François Fabre on Stack Overflow
 # under creative commons license: https://stackoverflow.com/a/42720847/12876940
-def scanrec(root, maximum_depth):
+def scanrec(root, maximum_depth, exclude_dirs):
     rval = []
 
     depth = 0
 
     def do_scan(start_dir, output, d):
         for f in os.listdir(start_dir):
-            ff = os.path.join(start_dir, f)
-            if os.path.isdir(ff):
-                if d < maximum_depth:
-                    do_scan(ff, output, d + 1)
+            if f not in exclude_dirs:  # as also includes dirs
+                ff = os.path.join(start_dir, f)
+                if os.path.isdir(ff):
+                    if d < maximum_depth:
+                        do_scan(ff, output, d + 1)
 
-            else:
-                output.append(ff[len(os.getcwd()) + 1 :])
+                else:
+                    output.append(ff[len(os.getcwd()) + 1:])
 
     do_scan(root, rval, depth)
     return rval
 
 
-def get_files(depth) -> list:
+def get_files(depth, exclude_dirs) -> list:
     # all files in the root directory and lower
-
-    onlyfiles = scanrec(os.getcwd(), depth)
+    onlyfiles = scanrec(os.getcwd(), depth, exclude_dirs)
 
     return onlyfiles
 
@@ -136,8 +136,9 @@ def match_filename(filename: str):
     
     return files_bytes
 
-def read_file_data(depth, excludes, exclude_name) -> dict:
-    onlyfiles = get_files(depth)
+
+def read_file_data(depth, excludes, exclude_name, exclude_dirs) -> dict:
+    onlyfiles = get_files(depth, exclude_dirs)
     files_bytes = {}
     for i in range(len(onlyfiles)):
         filename, file_extension = os.path.splitext(onlyfiles[i])
