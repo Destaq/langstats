@@ -48,7 +48,11 @@ The following flags are available, and they are all optional (if you ignore them
 - **-m or --maximum:** the maximum number of unique languages to show (excluding 'Other'). Default is 8. *Example: `statistics -m 3` will show at most 3 other languages in addition to 'Other'*
 - **-e or --exclude:** which file extensions to exclude when searching for files and creating the image. These files will be ignored and will not affect the total percentage or show up. You can specify multiple. *Example: `statistics -e .ipynb .css .html`*
 - **-n or --names:** which filenames to exclude (for files that do not have an extension, such as a `Dockerfile`). You can specify multiple. *Example: `statistics -n Dockerfile Cakefile Emakefile`*
-- **-c or --colors:** which hex colors to be used for creating the image. Applied left to right from highest percentage to lowest. If no colors are provided, or too few, the YAML will be used or another strategy to pick the remainder of the colors. *Example: `statistics -c ffb6c1 00ff00`*
+- **-c or --colors:** which hex colors to be used for creating the image. Applied left to right from highest percentage
+  to lowest. If no colors are provided, or too few, the YAML will be used or another strategy to pick the remainder of
+  the colors. *Example: `statistics -c ffb6c1 00ff00`*
+- **-s or --skip-dirs:** list of relative directory paths to exclude when generating the visualization. *
+  Example: `statistics -s node_modules .idea`*
 
 The above flags can be used in any order, combined, and are completely optional (`statistics --type png -l 5 -m 3 --depth 4 -e .ipynb`). If you are ever in doubt you can run `statistics -h` to get a help output on console reminding you of the flags.
 
@@ -81,4 +85,7 @@ All you need to do is make sure that you are running this on **Python 3** and ha
 There is no need to individually install any packages because when you create the local package, it will automatically install those for you as it is being created. As long as you correctly type in `python3 -m pip install -e .` in the root directory of the project, you're good to go!
 
 ### Credits
-I based this idea off of [linguist](https://github.com/github/linguist), which is the default GitHub program used to generate the color bar used in every repository. I also used their `languages.yml` file to recognize languages (with permission due to the MIT License).
+
+I based this idea off of [linguist](https://github.com/github/linguist), which is the default GitHub program used to
+generate the color bar used in every repository. I also used their permissively-licensed `languages.yml` file to
+recognize programming languages.

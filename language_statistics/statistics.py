@@ -77,7 +77,8 @@ def main():
         "--skip-dirs",
         nargs='*',
         default='',
-        help='List of relative directory paths to exclude when generating the color bar.',
+        help='List of relative directory paths to exclude when generating the color bar (e.g. statistics -s '
+             'node_modules screenshots). Default is none.',
         required=False
     )
 
