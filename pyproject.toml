@@ -20,12 +20,13 @@ license = { file = "LICENSE" }
 keywords = ["statistics", "linguist", "analysis"]
 dependencies = [
     "Pillow",
-    "PyYAML"
+    "PyYAML",
+    "pycairo"
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/Destaq/language-statistics"
-"Bug Tracker" = "https://github.com/Destaq/language-statistics/issues"
+"Homepage" = "https://github.com/Destaq/langstats"
+"Bug Tracker" = "https://github.com/Destaq/langstats/issues"
 
 [project.scripts]
 statistics = "langstats:statistics.main"

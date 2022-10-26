@@ -1,13 +1,16 @@
+# This file only exists for local development, and to simplify the build process by
+# allowing `language_statistics` to be seen as the entrypoint directory.
 import pathlib
 from setuptools import setup, find_packages
 
 HERE = pathlib.Path(__file__).parent
 
+# None of this matters...
 VERSION = "1.0.0"
-PACKAGE_NAME = "language-statistics"
+PACKAGE_NAME = "langstats"
 AUTHOR = "Simon Ilincev"
 AUTHOR_EMAIL = "simon@simonilincev.com"
-URL = "https://github.com/Destaq/language-statistics"
+URL = "https://github.com/Destaq/langstats"
 
 LICENSE = "MIT License"
 DESCRIPTION = "Generates a colored image showing programming language distribution in your directory."
@@ -17,6 +20,7 @@ LONG_DESC_TYPE = "text/markdown"
 INSTALL_REQUIRES = ["pycairo>=1.19.1", "Pillow>=4.1.1", "PyYAML>=5.3.1"]
 
 
+# pyproject.toml is used instead.
 setup(
     name=PACKAGE_NAME,
     version=VERSION,
@@ -35,4 +39,3 @@ setup(
     include_package_data=True,
     zip_safe=False,
 )
-
