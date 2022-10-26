@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "langstats"
-version = "1.0.1"
+version = "1.0.3"
 authors = [
   { name="Simon Ilincev", email="simon@simonilincev.com" },
 ]
@@ -26,3 +26,6 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/Destaq/language-statistics"
 "Bug Tracker" = "https://github.com/Destaq/language-statistics/issues"
+
+[project.scripts]
+statistics = "langstats:statistics.main"
