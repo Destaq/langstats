@@ -6,3 +6,5 @@
 /*.egg
 /samples
 output.png
+.idea
+/dist

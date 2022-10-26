@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "langstats"
+version = "1.0.0"
+authors = [
+  { name="Simon Ilincev", email="simon@simonilincev.com" },
+]
+description = "Detailed visualization of programming language use in your local directories"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+license = { file = "LICENSE" }
+keywords = ["statistics", "linguist", "analysis"]
+dependencies = [
+    "Pillow",
+    "PyYAML"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Destaq/language-statistics"
+"Bug Tracker" = "https://github.com/Destaq/language-statistics/issues"

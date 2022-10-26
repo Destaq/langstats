@@ -2,7 +2,7 @@
 With `language-statistics`, you can create a high-quality image (both as an SVG or PNG) of the programming languages and their percentages used in your directory. It is **runnable anywhere** and is **highly customizable**, an improved clone of the `linguist` package that comes with GitHub itself. And best of all, it takes just two clicks to install and one line to run!
 
 <p align="center">
-  <img src="screenshots/output.svg" alt = "Output image">
+  <img src="https://raw.githubusercontent.com/Destaq/language-statistics/master/screenshots/output.png" alt = "Output image">
 </p>
 
 ## Features
