@@ -1,6 +1,6 @@
 # langstats
 
-With `langstats`, you can create a high-quality image (both as an SVG or PNG) of the programming languages and their percentages used in your directory. It is **runnable anywhere** and is **highly customizable**, an improved clone of the `linguist` package that comes with GitHub itself. And best of all, it takes just two clicks to install and one line to run!
+With `langstats`, you can create a high-quality image (both as an SVG or PNG) of the programming languages and their percentages used in your directory. It is **runnable anywhere** and is **highly customizable**, an improved clone of the `linguist` package that comes with GitHub itself. And best of all, it takes just two lines to install and run!
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Destaq/langstats/master/screenshots/output.png" alt = "Output image">
