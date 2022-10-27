@@ -66,7 +66,7 @@ The following flags are available, and they are all optional (if you ignore them
 
 - **-d or --depth:** how many directories 'deep' the program should search for files in, default 3. A depth of one means reading files only in the root directory, a depth of 2 means files only in root directory + subdirectories, etc. _Example: `statistics -d 5` will search to a 'depth' of 5 from the root directory._<br>I highly recommend **trying this command out on your Desktop** with a depth of 5 or 6, the results are incredible!
 - **-t or --type:** the type of file outputted - svg or png. Defaults to svg as that is much higher quality. Specify 'png' to choose png. _Example: `statistics -t png`_
-- **-l or --limit:** how small a language as a percentage of the whole must be to be excluded. Default is 1. _Example: `statistics -l 5` (if it takes up less than 5 percent, it will be grouped with other)_
+- **-l or --limit:** the limit on the percentage size of the 'Other' category. Default is 1. _Example: `statistics -l 5` (as many languages as possible will be added to 'Other' while ensuring it has a maximum size of 5%)_
 - **-m or --maximum:** the maximum number of unique languages to show (excluding 'Other'). Default is 8. _Example: `statistics -m 3` will show at most 3 other languages in addition to 'Other'_
 - **-e or --exclude:** which file extensions to exclude when searching for files and creating the image. These files will be ignored and will not affect the total percentage or show up. You can specify multiple. _Example: `statistics -e .ipynb .css .html`_
 - **-n or --names:** which filenames to exclude (for files that do not have an extension, such as a `Dockerfile`). You can specify multiple. _Example: `statistics -n Dockerfile Cakefile Emakefile`_
