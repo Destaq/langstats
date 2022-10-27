@@ -73,8 +73,7 @@ The following flags are available, and they are all optional (if you ignore them
 - **-c or --colors:** which hex colors to be used for creating the image. Applied left to right from highest percentage
   to lowest. If no colors are provided, or too few, the YAML will be used or another strategy to pick the remainder of
   the colors. _Example: `statistics -c ffb6c1 00ff00`_
-- **-s or --skip-dirs:** list of relative directory paths to exclude when generating the visualization. _
-  Example: `statistics -s node_modules .idea`_
+- **-s or --skip-dirs:** list of relative directory paths to exclude when generating the visualization. _Example: `statistics -s node_modules .idea`_
 
 The above flags can be used in any order, combined, and are completely optional (`statistics --type png -l 5 -m 3 --depth 4 -e .ipynb`). If you are ever in doubt you can run `statistics -h` to get a help output on console reminding you of the flags.
 
