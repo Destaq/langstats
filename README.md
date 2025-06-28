@@ -33,7 +33,7 @@ $ python3 -m pip install langstats
 Do note that you may have to refresh your terminal for the command to be recognized. If you'd like to uninstall the package, simply run:
 
 ```bash
-$ $ python3 -m pip uninstall langstats
+$ python3 -m pip uninstall langstats
 ```
 
 If you'd like to make a local copy, you can clone this repository and run the following command from the root directory:
